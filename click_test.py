@@ -40,4 +40,21 @@ def test3(password):
 cli.add_command(test2)
 cli.add_command(test3)
 
-cli()
+class cli_test:
+    def __init__(self):
+        pass
+    
+    @click.group(chain=True)
+    def cli():
+        """ blah
+        """
+
+    @click.command('test', help='class click test')
+    def class_test():
+        click.echo('Testing from a class')
+    
+    cli.add_command(class_test)
+
+#cli()
+my_test = cli_test()
+my_test.cli()
